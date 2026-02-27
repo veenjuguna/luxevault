@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — LuxeVault</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+<nav class="lx-navbar">
+  <a href="index.html" class="lx-logo">Luxe<span>Vault</span></a>
+  <div class="lx-nav-actions">
+    <span style="font-size:.73rem;color:var(--lx-muted);letter-spacing:.08em;text-transform:uppercase">Admin Panel</span>
+    <a href="index.html" class="btn btn-lx-outline btn-sm">View Site</a>
+    <a href="login.html" class="btn btn-lx-ghost btn-sm">Sign Out</a>
+  </div>
+</nav>
+
+<div class="lx-admin-layout">
+  <!-- Sidebar -->
+  <aside class="lx-sidebar">
+    <span class="lx-sidebar-label" style="margin-bottom:12px">Navigation</span>
+    <a href="#" class="lx-sidebar-link active" onclick="showAdminTab('dashboard');return false"><i class="fas fa-th-large"></i> Dashboard</a>
+    <a href="#" class="lx-sidebar-link" onclick="showAdminTab('orders');return false"><i class="fas fa-box"></i> Orders</a>
+    <a href="#" class="lx-sidebar-link" onclick="showAdminTab('products');return false"><i class="fas fa-gem"></i> Products</a>
+    <a href="#" class="lx-sidebar-link" onclick="showAdminTab('users');return false"><i class="fas fa-users"></i> Customers</a>
+    <div style="margin:16px 0;border-top:1px solid var(--lx-border)"></div>
+    <a href="index.html" class="lx-sidebar-link"><i class="fas fa-external-link-alt"></i> View Site</a>
+  </aside>
+
+  <!-- Content -->
+  <div class="lx-admin-content">
+
+    <!-- Dashboard Tab -->
+    <div id="admin-dashboard">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div><span class="lx-label">Overview</span><h1 class="lx-section-title" style="font-size:1.8rem">Dashboard</h1></div>
+        <div style="font-size:.82rem;color:var(--lx-muted)">Welcome back, Ivy</div>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3"><div class="lx-stat-card"><div class="lx-stat-label"><i class="fas fa-box"></i> Total Orders</div><div class="lx-stat-value">42</div><div class="lx-stat-sub">+8 this month</div></div></div>
+        <div class="col-6 col-xl-3"><div class="lx-stat-card"><div class="lx-stat-label"><i class="fas fa-gem"></i> Products</div><div class="lx-stat-value">28</div><div class="lx-stat-sub">In stock: 24</div></div></div>
+        <div class="col-6 col-xl-3"><div class="lx-stat-card"><div class="lx-stat-label"><i class="fas fa-users"></i> Customers</div><div class="lx-stat-value">156</div><div class="lx-stat-sub">+12 this month</div></div></div>
+        <div class="col-6 col-xl-3"><div class="lx-stat-card"><div class="lx-stat-label"><i class="fas fa-money-bill-wave"></i> Today's Revenue</div><div class="lx-stat-value" style="font-size:1.4rem">4.8M</div><div class="lx-stat-sub" style="color:var(--lx-gold)">KES</div></div></div>
+      </div>
+      <div class="lx-card">
+        <div class="lx-card-header"><span class="lx-card-title">Recent Orders</span><button class="btn btn-lx-outline btn-sm" onclick="showAdminTab('orders')">View All</button></div>
+        <div style="overflow-x:auto">
+          <table class="lx-table" style="min-width:600px">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr><td><strong>#00042</strong></td><td>Ivy Njuguna</td><td>1</td><td>KES 4,850,000</td><td><span class="lx-badge lx-badge-success">Delivered</span></td><td>14 Feb 2025</td></tr>
+              <tr><td><strong>#00041</strong></td><td>Brian Mwangi</td><td>2</td><td>KES 1,220,000</td><td><span class="lx-badge lx-badge-info">Shipped</span></td><td>12 Feb 2025</td></tr>
+              <tr><td><strong>#00040</strong></td><td>Amina Hassan</td><td>1</td><td>KES 890,000</td><td><span class="lx-badge lx-badge-warning">Processing</span></td><td>10 Feb 2025</td></tr>
+              <tr><td><strong>#00039</strong></td><td>Kevin Otieno</td><td>3</td><td>KES 620,000</td><td><span class="lx-badge lx-badge-success">Delivered</span></td><td>8 Feb 2025</td></tr>
+              <tr><td><strong>#00038</strong></td><td>Grace Wambui</td><td>1</td><td>KES 7,200,000</td><td><span class="lx-badge lx-badge-warning">Pending</span></td><td>7 Feb 2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orders Tab -->
+    <div id="admin-orders" style="display:none">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div><span class="lx-label">Management</span><h1 class="lx-section-title" style="font-size:1.8rem">Orders</h1></div>
+      </div>
+      <div class="d-flex gap-2 mb-3 flex-wrap">
+        <button class="btn btn-lx-gold btn-sm">All</button>
+        <button class="btn btn-lx-outline btn-sm">Pending</button>
+        <button class="btn btn-lx-outline btn-sm">Processing</button>
+        <button class="btn btn-lx-outline btn-sm">Shipped</button>
+        <button class="btn btn-lx-outline btn-sm">Delivered</button>
+      </div>
+      <div class="lx-card">
+        <div style="overflow-x:auto">
+          <table class="lx-table" id="admin-table" style="min-width:700px">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td><strong>#00042</strong></td><td>Ivy Njuguna<br><span style="font-size:.73rem;color:var(--lx-muted)">ivy@example.com</span></td><td>KES 4,850,000</td><td><select class="lx-input lx-select" style="width:auto;font-size:.75rem;padding:4px 8px" onchange="lxToast('Status updated','success')"><option selected>Delivered</option><option>Pending</option><option>Processing</option><option>Shipped</option></select></td><td>14 Feb</td><td><button class="btn btn-lx-outline btn-sm">View</button></td></tr>
+              <tr><td><strong>#00041</strong></td><td>Brian Mwangi<br><span style="font-size:.73rem;color:var(--lx-muted)">brian@email.com</span></td><td>KES 1,220,000</td><td><select class="lx-input lx-select" style="width:auto;font-size:.75rem;padding:4px 8px" onchange="lxToast('Status updated','success')"><option>Delivered</option><option>Pending</option><option>Processing</option><option selected>Shipped</option></select></td><td>12 Feb</td><td><button class="btn btn-lx-outline btn-sm">View</button></td></tr>
+              <tr><td><strong>#00040</strong></td><td>Amina Hassan</td><td>KES 890,000</td><td><select class="lx-input lx-select" style="width:auto;font-size:.75rem;padding:4px 8px" onchange="lxToast('Status updated','success')"><option>Delivered</option><option>Pending</option><option selected>Processing</option><option>Shipped</option></select></td><td>10 Feb</td><td><button class="btn btn-lx-outline btn-sm">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products Tab -->
+    <div id="admin-products" style="display:none">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div><span class="lx-label">Inventory</span><h1 class="lx-section-title" style="font-size:1.8rem">Products</h1></div>
+        <button class="btn btn-lx-gold" onclick="lxToast('Add product form coming soon','info')"><i class="fas fa-plus me-2"></i>Add Product</button>
+      </div>
+      <div class="d-flex gap-2 mb-3">
+        <div style="position:relative;flex:1;max-width:320px">
+          <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--lx-dim);font-size:.8rem"></i>
+          <input type="text" id="admin-search" class="lx-input" placeholder="Search products…" style="padding-left:34px">
+        </div>
+      </div>
+      <div class="lx-card">
+        <div style="overflow-x:auto">
+          <table class="lx-table" id="admin-table" style="min-width:620px">
+            <thead><tr><th>Product</th><th>Brand</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td><div class="d-flex align-items-center gap-3"><img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=60" style="width:40px;height:40px;object-fit:cover;border-radius:var(--lx-radius);border:1px solid var(--lx-border)"><strong>Submariner Date 41mm</strong></div></td><td>Rolex</td><td><span class="lx-badge lx-badge-muted">Watches</span></td><td>KES 4,850,000</td><td style="color:var(--lx-success)">3</td><td><div class="d-flex gap-2"><button class="btn btn-lx-outline btn-sm" onclick="lxToast('Edit product','info')">Edit</button><button class="btn btn-lx-danger btn-sm" onclick="lxToast('Product deleted','success')">Delete</button></div></td></tr>
+              <tr><td><div class="d-flex align-items-center gap-3"><img src="https://images.unsplash.com/photo-1637487726184-3ae71e9f4a0b?w=60" style="width:40px;height:40px;object-fit:cover;border-radius:var(--lx-radius);border:1px solid var(--lx-border)"><strong>Seamaster 300M</strong></div></td><td>Omega</td><td><span class="lx-badge lx-badge-muted">Watches</span></td><td>KES 1,230,000</td><td style="color:var(--lx-success)">5</td><td><div class="d-flex gap-2"><button class="btn btn-lx-outline btn-sm">Edit</button><button class="btn btn-lx-danger btn-sm">Delete</button></div></td></tr>
+              <tr><td><div class="d-flex align-items-center gap-3"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=60" style="width:40px;height:40px;object-fit:cover;border-radius:var(--lx-radius);border:1px solid var(--lx-border)"><strong>Love Diamond Ring</strong></div></td><td>Cartier</td><td><span class="lx-badge lx-badge-muted">Jewellery</span></td><td>KES 890,000</td><td style="color:var(--lx-danger)">0</td><td><div class="d-flex gap-2"><button class="btn btn-lx-outline btn-sm">Edit</button><button class="btn btn-lx-danger btn-sm">Delete</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Tab -->
+    <div id="admin-users" style="display:none">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <div><span class="lx-label">Customers</span><h1 class="lx-section-title" style="font-size:1.8rem">Users</h1></div>
+        <span style="font-size:.82rem;color:var(--lx-muted)">156 total</span>
+      </div>
+      <div class="lx-card">
+        <div style="overflow-x:auto">
+          <table class="lx-table" style="min-width:560px">
+            <thead><tr><th>User</th><th>Email</th><th>Phone</th><th>Role</th><th>Joined</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><div class="d-flex align-items-center gap-2"><div style="width:32px;height:32px;border-radius:50%;background:var(--lx-gold);color:#000;display:flex;align-items:center;justify-content:center;font-family:var(--lx-serif);font-weight:700;font-size:.85rem">I</div><strong>Ivy Njuguna</strong></div></td><td>ivy@example.com</td><td>0712 345 678</td><td><span class="lx-badge lx-badge-gold">Admin</span></td><td>Jan 2025</td><td></td></tr>
+              <tr><td><div class="d-flex align-items-center gap-2"><div style="width:32px;height:32px;border-radius:50%;background:var(--lx-bg3);border:1px solid var(--lx-border);color:var(--lx-muted);display:flex;align-items:center;justify-content:center;font-family:var(--lx-serif);font-weight:700;font-size:.85rem">B</div>Brian Mwangi</div></td><td>brian@email.com</td><td>0722 111 222</td><td><span class="lx-badge lx-badge-muted">Customer</span></td><td>Feb 2025</td><td><button class="btn btn-lx-danger btn-sm" onclick="lxToast('User removed','success')"><i class="fas fa-trash"></i></button></td></tr>
+              <tr><td><div class="d-flex align-items-center gap-2"><div style="width:32px;height:32px;border-radius:50%;background:var(--lx-bg3);border:1px solid var(--lx-border);color:var(--lx-muted);display:flex;align-items:center;justify-content:center;font-family:var(--lx-serif);font-weight:700;font-size:.85rem">A</div>Amina Hassan</div></td><td>amina@email.com</td><td>0733 456 789</td><td><span class="lx-badge lx-badge-muted">Customer</span></td><td>Jan 2025</td><td><button class="btn btn-lx-danger btn-sm" onclick="lxToast('User removed','success')"><i class="fas fa-trash"></i></button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="lx-toasts"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script>
+function showAdminTab(name) {
+  ['dashboard','orders','products','users'].forEach(t => {
+    document.getElementById('admin-'+t).style.display = t === name ? '' : 'none';
+  });
+  document.querySelectorAll('.lx-sidebar-link').forEach((l, i) => {
+    l.classList.toggle('active', ['dashboard','orders','products','users'][i] === name);
+  });
+}
+</script>
+</body>
+</html>

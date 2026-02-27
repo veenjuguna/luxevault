@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — LuxeVault</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+<nav class="lx-navbar">
+  <a href="index.html" class="lx-logo">Luxe<span>Vault</span></a>
+  <div class="lx-nav-actions">
+    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="lx-cart-count" style="display:none">0</span></a>
+  </div>
+</nav>
+<div class="lx-auth-wrap">
+  <div class="lx-auth-card" style="max-width:460px">
+    <div class="lx-auth-header">
+      <a href="index.html" class="lx-auth-logo">LuxeVault</a>
+      <h1 class="lx-auth-title">Create Account</h1>
+      <p class="lx-auth-sub">Join Kenya's premier luxury marketplace</p>
+    </div>
+    <div class="lx-auth-body">
+      <form id="register-form" action="profile.html">
+        <div class="row g-3 mb-0">
+          <div class="col-6 mb-3">
+            <label class="lx-label-form">First Name</label>
+            <input type="text" name="first_name" class="lx-input" placeholder="Jane" required>
+          </div>
+          <div class="col-6 mb-3">
+            <label class="lx-label-form">Last Name</label>
+            <input type="text" name="last_name" class="lx-input" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="lx-label-form">Email Address</label>
+          <input type="email" name="email" class="lx-input" placeholder="you@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label class="lx-label-form">Phone Number <span style="color:var(--lx-dim);font-weight:400;text-transform:none;letter-spacing:0">(M-Pesa)</span></label>
+          <input type="tel" name="phone" class="lx-input" placeholder="0712 345 678">
+        </div>
+        <div class="mb-3">
+          <label class="lx-label-form">Password</label>
+          <div style="position:relative">
+            <input type="password" name="password" id="pwd" class="lx-input" placeholder="Min. 8 characters" required minlength="8" style="padding-right:44px">
+            <button type="button" data-toggle-pwd="pwd" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--lx-dim);cursor:pointer"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="lx-label-form">Confirm Password</label>
+          <input type="password" name="confirm" class="lx-input" placeholder="Repeat password" required>
+        </div>
+        <label class="d-flex align-items-start gap-2 mb-4" style="cursor:pointer;font-size:.82rem;color:var(--lx-muted)">
+          <input type="checkbox" required style="margin-top:3px"> I agree to the Terms of Service and Privacy Policy
+        </label>
+        <button type="submit" class="btn btn-lx-gold w-100">Create Account</button>
+      </form>
+    </div>
+    <div class="lx-auth-foot">Already have an account? <a href="login.html">Sign in</a></div>
+  </div>
+</div>
+<div id="lx-toasts"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — LuxeVault</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+<nav class="lx-navbar">
+  <a href="index.html" class="lx-logo">Luxe<span>Vault</span></a>
+  <div class="lx-nav-actions">
+    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="lx-cart-count" style="display:none">0</span></a>
+  </div>
+</nav>
+<div class="lx-auth-wrap">
+  <div class="lx-auth-card">
+    <div class="lx-auth-header">
+      <a href="index.html" class="lx-auth-logo">LuxeVault</a>
+      <h1 class="lx-auth-title">Welcome back</h1>
+      <p class="lx-auth-sub">Sign in to your account</p>
+    </div>
+    <div class="lx-auth-body">
+      <div class="mb-4">
+        <label class="lx-label-form">Email Address</label>
+        <input type="email" class="lx-input" placeholder="you@example.com" autofocus>
+      </div>
+      <div class="mb-4">
+        <label class="lx-label-form" style="display:flex;justify-content:space-between;align-items:center">
+          <span>Password</span>
+          <a href="forgot-password.html" style="font-size:.73rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--lx-muted)">Forgot?</a>
+        </label>
+        <div style="position:relative">
+          <input type="password" id="pwd" class="lx-input" placeholder="••••••••" style="padding-right:44px">
+          <button data-toggle-pwd="pwd" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--lx-dim);cursor:pointer;padding:4px">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <label class="d-flex align-items-center gap-2 mb-4" style="cursor:pointer;font-size:.84rem;color:var(--lx-muted)">
+        <input type="checkbox"> Remember me for 30 days
+      </label>
+      <a href="profile.html" class="btn btn-lx-gold w-100 mb-3">Sign In</a>
+      <div style="text-align:center;font-size:.78rem;color:var(--lx-dim)"><i class="fas fa-shield-alt me-1"></i>Secure login</div>
+    </div>
+    <div class="lx-auth-foot">Don't have an account? <a href="register.html">Create one free</a></div>
+  </div>
+</div>
+<div id="lx-toasts"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
